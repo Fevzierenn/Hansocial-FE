@@ -1,0 +1,13 @@
+.container{
+    width: 900px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.postform-text{
+    width: 100%;
+}
+.postform-title{
+    width: 60%;
+}
