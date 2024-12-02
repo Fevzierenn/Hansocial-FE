@@ -9,7 +9,9 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
+
 function Login() {
+    
     const [userLogin, setUserLogin] = useState({
         id: "",
         username: "",
@@ -37,12 +39,13 @@ function Login() {
       
       if (response.ok) {
         alert('Giriş Başarılı! Ana sayfaya yönlendiriliyorsunuz...');
-        setUserLogin({
+        const user ={
             id: data.id,
             username: data.username,
             email: data.email,
             avatar: data.avatar
-        });
+        };
+        localStorage.setItem('user', JSON.stringify(user));
         return { success: true, userData: data };
       }
        else {
@@ -68,7 +71,7 @@ function Login() {
     e.preventDefault();
     const result = await loginUser();
     if (result.success) {
-      navigate("/", { state: { userLogin: result.userData }});
+      navigate("/");
     } else {
       navigate("/register");
     }

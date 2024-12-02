@@ -53,8 +53,9 @@ function Post({title, text, date, likes, postId, userId, userName}){  //post ile
     const [likeCount, setLikeCount] = useState(likes.length);
     const [likeId, setLikeId] = useState(null);
     
-    const location = useLocation();
-    const { userLogin } = location.state || {}; // state içinden userId'yi al
+    const user = localStorage.getItem('user');
+    const userLogin = JSON.parse(user);
+      
 
     const handleLikeClick = () => {
         setLiked(!liked);
