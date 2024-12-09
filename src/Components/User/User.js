@@ -252,6 +252,7 @@ function User() {
                                     marginBottom: '10px'
                                 }}>
                                 <CardContent>
+                                    <Typography  style={{ fontWeight: 'bold' }}>{post.title}</Typography>
                                     <Typography>{post.text}</Typography>
                                 </CardContent>
                                 <CardActions>
