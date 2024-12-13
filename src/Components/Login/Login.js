@@ -27,7 +27,7 @@ function Login() {
   const loginUser = async (e) => {
     const payload = formData;
     try {
-      const response = await fetch('http://localhost:8080/login', {
+      const response = await fetch('https://bulutbilisim-hansocial-app-74713540368.us-central1.run.app/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

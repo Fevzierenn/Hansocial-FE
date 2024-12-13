@@ -11,7 +11,7 @@ function Home(){
     const user = localStorage.getItem('user');
     const userLogin = JSON.parse(user);
     const refreshPosts = () => {
-        fetch("http://localhost:8080/posts")
+        fetch("https://bulutbilisim-hansocial-app-74713540368.us-central1.run.app/posts")
         .then((response) => {
           if (!response.ok) {
             throw new Error("Bir hata oluştu!");
@@ -31,7 +31,6 @@ function Home(){
 
     useEffect(() => {
         const user = getSafeData('user'); // 'user' bilgisini JSON olarak alır
-        console.log(user);
         refreshPosts();
     }, []);
     const getSafeData = (key) => {
@@ -64,12 +63,12 @@ function Home(){
     } else { 
 
     return  <div className="home">
-        <PostForm  userId = {userLogin.id}   userName = {userLogin.username} 
+        <PostForm  userId = {userLogin.id}   userName = {userLogin.username} avatar = {userLogin.avatar}
                 title={""} text={""} refreshPosts={refreshPosts} />
         {
           
             postList.map((post) => (
-                <Post likes = {post.postLikes} postId = {post.id} userId = {post.userId} userName = {post.userName}  
+                <Post likes = {post.postLikes} postId = {post.id} userId = {post.userId} userName = {post.userName} 
                 title={post.title} text={post.text} date={post.createDate}  />
             ))
         }

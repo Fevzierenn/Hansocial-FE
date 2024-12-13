@@ -79,7 +79,9 @@ function Post({title, text, date, likes, postId, userId, userName}){  //post ile
 
 
 
-    useEffect(() => {checkLikes()},[])  
+    useEffect(() => {checkLikes()
+
+    },[])  
 
     const checkLikes = () => {
         var likeControl = likes.find((like) => like.userId === userLogin.id);
@@ -98,7 +100,7 @@ function Post({title, text, date, likes, postId, userId, userName}){  //post ile
         };
     
         try {
-          const response = await fetch('http://localhost:8080/likes', {
+          const response = await fetch('https://bulutbilisim-hansocial-app-74713540368.us-central1.run.app/likes', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -121,7 +123,7 @@ function Post({title, text, date, likes, postId, userId, userName}){  //post ile
       
   };
   const deleteLike = () => {
-    fetch("http://localhost:8080/likes/"+likeId, {
+    fetch("https://bulutbilisim-hansocial-app-74713540368.us-central1.run.app/likes/"+likeId, {
       method: "DELETE"
     }) 
     .then((response) => {
@@ -146,7 +148,7 @@ function Post({title, text, date, likes, postId, userId, userName}){  //post ile
     };
 
     const refreshComments = () => {
-      fetch("http://localhost:8080/comments?postId="+postId)
+      fetch("https://bulutbilisim-hansocial-app-74713540368.us-central1.run.app/comments?postId="+postId)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Bir hata oluştu!");
@@ -180,9 +182,8 @@ function Post({title, text, date, likes, postId, userId, userName}){  //post ile
       <Card sx={{ maxWidth: 800 }} className="container">
         <CardHeader
           avatar={
-           <Link to={{pathname: "/users/"+userId}}> <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-           {userName.charAt(0)}
-         
+           <Link to={{pathname: "/users/"+userId}}> <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe"> 
+              {userName.substring(0,1)}
          </Avatar></Link>
          
         }

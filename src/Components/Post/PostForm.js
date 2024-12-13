@@ -12,13 +12,14 @@ import { Link } from "react-router-dom";
 
   
   
-function PostForm({title, text, userId,userName, refreshPosts}){
+function PostForm({title, text, userId,userName, refreshPosts, avatar}){
     const [stitle, setTitle] = React.useState(title);
     const [stext, setText] = React.useState(text);
 
 
     const handlePost = async (e) => {
         console.log("Post clicked text: " + stext + " title: " + stitle);  
+       
         if(stext.length > 0 && stitle.length > 0){
           const payload = {
             userId: userId,
@@ -27,7 +28,7 @@ function PostForm({title, text, userId,userName, refreshPosts}){
           };
       
           try {
-            const response = await fetch('http://localhost:8080/posts', {
+            const response = await fetch('https://bulutbilisim-hansocial-app-74713540368.us-central1.run.app/posts', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -68,8 +69,8 @@ function PostForm({title, text, userId,userName, refreshPosts}){
       <Card sx={{ maxWidth: 800 }} className="container">
         <CardHeader
           avatar={
-           <Link to={{pathname: "/users/"+userId}}> <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-           {userName.charAt(0)}
+           <Link to={{pathname: "/users/"+userId}}> <Avatar src={'/avatars/avatar'+(avatar+1)+'.jpg'} sx={{ bgcolor: red[500] }} aria-label="recipe">
+           {avatar}
          </Avatar></Link>
           }
           

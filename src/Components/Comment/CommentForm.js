@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import SendIcon from '@mui/icons-material/Send';
 function CommentForm({postId, userId, refreshComments}){
-    const [commentText, setCommentText] = React.useState("");
+    const [commentText, setCommentText] = React.useState(""); 
     
     const handleComment = async (e) => {
         console.log("Post clicked text: " + commentText);  
@@ -18,7 +18,7 @@ function CommentForm({postId, userId, refreshComments}){
           };
       
           try {
-            const response = await fetch('http://localhost:8080/comments', {
+            const response = await fetch('https://bulutbilisim-hansocial-app-74713540368.us-central1.run.app/comments', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',

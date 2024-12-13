@@ -39,7 +39,7 @@ const saveUser = async (e) => {
     avatar: formData.avatar 
   };
   try {
-    const response = await fetch('http://localhost:8080/users', {
+    const response = await fetch('https://bulutbilisim-hansocial-app-74713540368.us-central1.run.app/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

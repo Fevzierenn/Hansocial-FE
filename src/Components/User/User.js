@@ -42,7 +42,7 @@ function User() {
 
     const changeAvatar = (index) => {
         const userId = user.id;
-        const apiUrl = `http://localhost:8080/users/${userId}/avatar?avatar=${index}`;
+        const apiUrl = `https://bulutbilisim-hansocial-app-74713540368.us-central1.run.app/users/${userId}/avatar?avatar=${index}`;
 
         fetch(apiUrl, {
             method: 'PUT',
@@ -84,7 +84,7 @@ function User() {
     const handleEditSave = () => {
         if (!editingPost) return;
 
-        fetch(`http://localhost:8080/posts/${editingPost.id}`, {
+        fetch(`https://bulutbilisim-hansocial-app-74713540368.us-central1.run.app/posts/${editingPost.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -109,7 +109,7 @@ function User() {
     };
 
     const handlePostDelete = (postId) => {
-        fetch(`http://localhost:8080/posts/${postId}`, {
+        fetch(`https://bulutbilisim-hansocial-app-74713540368.us-central1.run.app/posts/${postId}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
@@ -139,7 +139,7 @@ function User() {
     const handleCommentEditSave = () => {
         if (!editingComment) return;
 
-        fetch(`http://localhost:8080/comments/${editingComment.id}`, {
+        fetch(`https://bulutbilisim-hansocial-app-74713540368.us-central1.run.app/comments/${editingComment.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -164,7 +164,7 @@ function User() {
     };
 
     const handleCommentDelete = (commentId) => {
-        fetch(`http://localhost:8080/comments/${commentId}`, {
+        fetch(`https://bulutbilisim-hansocial-app-74713540368.us-central1.run.app/comments/${commentId}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
@@ -180,7 +180,7 @@ function User() {
     };
 
     const getAllComments = () => {
-        fetch(`http://localhost:8080/comments?userId=${user.id}`)
+        fetch(`https://bulutbilisim-hansocial-app-74713540368.us-central1.run.app/comments?userId=${user.id}`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Bir hata oluştu!");
@@ -198,7 +198,7 @@ function User() {
 
     const getAllPosts = () => {
         
-        fetch(`http://localhost:8080/posts?userId=${user.id}`)
+        fetch(`https://bulutbilisim-hansocial-app-74713540368.us-central1.run.app/posts?userId=${user.id}`)
         .then((response) => {
             if (!response.ok) {
                 throw new Error("Bir hata oluştu!");
